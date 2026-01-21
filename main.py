@@ -13,7 +13,6 @@ string = text.split('\n')
 
 for item in string:
     st=item.lstrip()
-    print(st)
     if item == '':
         finally_text+='\n'
 
