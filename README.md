@@ -7,8 +7,8 @@
 
 ихдоный текст с разметкой:
 
-[test1](doc/in_text.png)
+<img src="doc/in_text.png" alt="image">
 
 текст отоброженный с помщю этой программы:
 
-[test2](doc/out_text.png)
+<img src="doc/out_text.png" alt="image">
