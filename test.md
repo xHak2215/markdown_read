@@ -13,7 +13,6 @@
 __bu bu bu be be be__
 
  text
-t
 
 ```python
 print("hello, world!")
@@ -21,8 +20,11 @@ pass
 code...
 ```
 
+---
+
+`command`
 
 **это** __смешаный__ `текст`
 
-`command` `adv`
+
 
