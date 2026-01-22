@@ -15,6 +15,12 @@ string = text.split('\n')
 for item in string:
     st = item.lstrip().replace('<br>','\n')
 
+    st=re.sub(r'`([^`]+)`', lambda m: f'\033[01;07;38;05;232;48;05;232m{m.group(1)}\033[0m', st)
+    
+    st=re.sub(r'\_\_([^`]+)\_\_', lambda m: f'\33[3;1;1m{m.group(1)}\033[0m', st)
+    
+    st=re.sub(r'\*\*([^`]+)\*\*', lambda m: f'\33[1;1;1m{m.group(1)}\033[0m', st)
+
     if item == '':
         finally_text+='\n'
 
@@ -31,18 +37,10 @@ for item in string:
         else:    
             finally_text+=st.replace("```", '\33[0m')+'\n'
             start_or_end_code-=1
-
-    elif bool(re.search(r'`[^`]`', st)):
-        finally_text+=re.sub(r'`([^`]+)`', lambda m: f'\033[01;07;38;05;232;48;05;232m{m.group(1)}\033[0m', st)+'\n'
-
-    elif bool(re.search(r'\_\_[^*]+\_\_', st)):
-        finally_text+=re.sub(r'\_\_([^`]+)\_\_', lambda m: f'\33[3;1;1m{m.group(1)}\033[0m', st)+'\n'
     
-    elif bool(re.search(r'\*\*[^*]+\*\*', st)):
-        finally_text+=re.sub(r'\*\*([^`]+)\*\*', lambda m: f'\33[1;1;1m{m.group(1)}\033[0m', st)+'\n'
-
     else:
-        finally_text+=item+'\n'
-
+        finally_text+=st+'\n'
+    
+    #while bool(re.search(r'`[^`]`', bufer_st)) or bool(re.search(r'\_\_[^*]+\_\_', bufer_st)) or bool(re.search(r'\*\*[^*]+\*\*', bufer_st)):
 
 print(finally_text)
