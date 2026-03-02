@@ -39,7 +39,7 @@ for item in string:
             finally_text+=st.replace("```", '\33[0m')+'\n'
             start_or_end_code-=1
 
-    elif st.startswith('---') and st.endswith('---'):
+    elif st.startswith('---') and st.endswith('---') or st.startswith('<hr>') and st.endswith('<hr>'):
         finally_text+=f"\033[0m{'_'*os.get_terminal_size()[0]}\33[0m\n"
     
     else:
